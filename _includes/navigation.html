@@ -1,0 +1,13 @@
+<div class="header">
+	<div class="logo">
+		Marian Anghel
+	 </div>
+	<nav>
+	  {% for item in site.data.navigation %}
+		<a href="{{ item.link }}" class="link"> 
+			<div class="title"> {{ item.name }} </div>
+			<div class="bar"></div>
+		</a>
+	  {% endfor %}
+	</nav>
+</div>

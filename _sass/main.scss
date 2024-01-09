@@ -1,55 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 html, body {
-  font-family: 'Montserrat';
-  font-weight: 300;
+	font-family: 'Montserrat';
+	font-weight: 300;
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+body {
+  display: flex; /* or css grid for more intricate layouts */
+  flex-direction: column;
 }
 
 p {
-   text-align: center;
+	text-align: center;
+}
+
+nav {
+	text-align: center;
 }
 
 .header {
   width: 100%;
   text-align: right;
   position: relative;
+  background-color: #F9F8F4;
   
   .logo {
     position: absolute;
     top: 0;
     left: 0;
-    font-size: 32px;
+    font-size: 16px;
     font-weight: 100;
-    padding: 26px;
+    padding: 0px 0;
+	margin: 0px 100px;
+	text-transform: uppercase;
+
   }
 }
 
 .link {
   display: inline-block;
-  padding: 15px 0;
-  margin: 15px 25px;
+  padding: 20px 0;
+  margin: 20px 15px;
   position: relative;
   text-decoration: none;
-  text-transform: uppercase;
   color: #0f0f0f;
   font-weight: 800;
-  font-size: 24px;
+  font-size: 14px;
+
   
   .bar {
     width: 100%;
     display: inline-block;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #E2DDCA;
     position: absolute;
     bottom: 0;
     left: 0;
     opacity: 0;
-    transition: all 300ms;
+    transition: all 60ms;
   }
   
   &:hover {
     .bar {
       opacity: 1;
-      bottom: 5px;
+      bottom: 15px;
     }
   }
 }

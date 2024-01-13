@@ -4,7 +4,7 @@ title: Impossible list
 ---
 # My impossible list
 
-![me skydiving](assets/images/skydiving_jump.jpg)
+<img src="{{site.baseurl | prepend: site.url}}assets/images/skydiving_jump.jpg" alt="Me skydiving" />
 
 This page lists all my long term objectives
 

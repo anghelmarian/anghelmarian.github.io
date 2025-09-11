@@ -1,13 +1,10 @@
-# Personal Portfolio Website
+# Personal Website
+
+[![Website Preview](https://raw.githubusercontent.com/anghelmarian/anghelmarian.github.io/main/assets/images/preview.gif)](https://anghelmarian.github.io)
 
 <div align="center">
-  <h3>✨ Static Preview</h3>
-  <img src="https://raw.githubusercontent.com/anghelmarian/anghelmarian.github.io/main/assets/images/preview.png" alt="Website Static Preview" width="600">
-  
-  <h3>🌟 Live Animation Preview</h3>
+  <h3>Live Animation Preview</h3>
   <img src="https://raw.githubusercontent.com/anghelmarian/anghelmarian.github.io/main/assets/images/preview.gif" alt="Website Animation" width="600">
-
-  <h3><a href="https://anghelmarian.github.io">→ Visit Live Site</a></h3>
 </div>
 
 ## Technologies Used

@@ -4,7 +4,7 @@ html, body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; font-
 
 #particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
 
-.container { width: 100%; height: 100vh; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
+.container { width: 100%; height: 100vh; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; box-sizing: border-box; }
 
 .profile { text-align: center; padding: 0 1rem; }
 .profile__image { width: 180px; height: 180px; border-radius: 50%; margin-bottom: 1.5rem; box-shadow: 0 0 25px rgba(255, 255, 255, 0.15); object-fit: cover; object-position: center; display: block; margin-left: auto; margin-right: auto; border: 2px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; }
@@ -34,10 +34,23 @@ html, body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; font-
 .footer { text-align: center; padding: 1rem 0; color: var(--color-text-muted); font-size: 0.9em; position: fixed; bottom: 20px; left: 0; right: 0; width: 100%; }
 .footer p { margin: 0; }
 
-@media (max-width: 768px) { .container { padding: 1rem; }
-  .profile__name { font-size: 1.8em; }
-  .bio { font-size: 1em; padding: 0 1rem; }
+@media (max-width: 768px) { html, body { overflow-y: auto; height: auto; min-height: 100vh; }
+  .container { padding: 0 1rem; height: auto; min-height: 100vh; justify-content: center; display: flex; align-items: center; box-sizing: border-box; }
+  .profile { margin: 0; }
+  .profile__image { width: 150px; height: 150px; margin-bottom: 1.5rem; }
+  .profile__name { font-size: 1.8em; margin-bottom: 0.5rem; }
+  .profile__title { font-size: 1em; margin-bottom: 1.5rem; }
+  .social-links { margin-bottom: 2rem; }
+  .social-links a { padding: 10px 15px; font-size: 0.95em; }
+  .quote { font-size: 0.95em; padding: 0 1rem; margin: 2rem auto; max-width: 100%; box-sizing: border-box; }
+  .quote-author { font-size: 0.85em; margin-top: 0.75rem; }
+  .footer { position: fixed; bottom: 20px; padding: 1rem 0; font-size: 0.85em; width: 100%; left: 0; right: 0; background: transparent; }
   .project-grid { grid-template-columns: 1fr; padding: 0 1rem; } }
+@media (max-width: 380px) { .container { padding: 1.5rem 0.75rem; }
+  .profile__image { width: 120px; height: 120px; }
+  .profile__name { font-size: 1.5em; }
+  .quote { font-size: 0.9em; padding: 0 0.75rem; }
+  .social-links a { padding: 8px 12px; font-size: 0.9em; } }
 .link { display: inline-block; padding: 20px 0; margin: 20px 15px; position: relative; text-decoration: none; color: #0f0f0f; font-weight: 800; font-size: 14px; }
 .link .bar { width: 100%; display: inline-block; border-bottom: 2px solid #E2DDCA; position: absolute; bottom: 0; left: 0; opacity: 0; transition: all 60ms; }
 .link:hover .bar { opacity: 1; bottom: 15px; }

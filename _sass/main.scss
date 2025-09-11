@@ -42,6 +42,7 @@ html, body {
     align-items: center;
     justify-content: center;
     position: relative;
+    box-sizing: border-box;
 }
 
 // Profile section
@@ -201,22 +202,108 @@ html, body {
 
 // Responsive adjustments
 @media (max-width: 768px) {
+    html, body {
+        overflow-y: auto;
+        height: auto;
+        min-height: 100vh;
+    }
+
     .container {
-        padding: 1rem;
-    }
-
-    .profile__name {
-        font-size: 1.8em;
-    }
-
-    .bio {
-        font-size: 1em;
         padding: 0 1rem;
+        height: auto;
+        min-height: 100vh;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .profile {
+        margin: 0;
+        
+        &__image {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 1.5rem;
+        }
+
+        &__name {
+            font-size: 1.8em;
+            margin-bottom: 0.5rem;
+        }
+
+        &__title {
+            font-size: 1em;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    .social-links {
+        margin-bottom: 2rem;
+        
+        a {
+            padding: 10px 15px;
+            font-size: 0.95em;
+        }
+    }
+
+    .quote {
+        font-size: 0.95em;
+        padding: 0 1rem;
+        margin: 2rem auto;
+        max-width: 100%;
+        box-sizing: border-box;
+        
+        &-author {
+            font-size: 0.85em;
+            margin-top: 0.75rem;
+        }
+    }
+
+    .footer {
+        position: fixed;
+        bottom: 20px;
+        padding: 1rem 0;
+        font-size: 0.85em;
+        width: 100%;
+        left: 0;
+        right: 0;
+        background: transparent;
     }
 
     .project-grid {
         grid-template-columns: 1fr;
         padding: 0 1rem;
+    }
+}
+
+// Additional adjustments for very small screens
+@media (max-width: 380px) {
+    .container {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .profile {
+        &__image {
+            width: 120px;
+            height: 120px;
+        }
+
+        &__name {
+            font-size: 1.5em;
+        }
+    }
+
+    .quote {
+        font-size: 0.9em;
+        padding: 0 0.75rem;
+    }
+
+    .social-links {
+        a {
+            padding: 8px 12px;
+            font-size: 0.9em;
+        }
     }
 }
 

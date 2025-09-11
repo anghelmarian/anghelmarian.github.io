@@ -1,6 +1,6 @@
 # Personal Portfolio Website
 
-[![Website Preview](assets/images/preview.png)](https://anghelmarian.github.io)
+[![Website Preview](https://raw.githubusercontent.com/anghelmarian/anghelmarian.github.io/main/assets/images/preview.png)](https://anghelmarian.github.io)
 
 A minimalist personal portfolio website featuring:
 - Animated particle background with dynamic connections

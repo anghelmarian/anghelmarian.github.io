@@ -1,12 +1,6 @@
-# Personal Portfolio Website
+# Personal Website
 
 [![Website Preview](https://raw.githubusercontent.com/anghelmarian/anghelmarian.github.io/main/assets/images/preview.png)](https://anghelmarian.github.io)
-
-A minimalist personal portfolio website featuring:
-- Animated particle background with dynamic connections
-- Responsive design
-- Clean, modern aesthetic
-- Dark theme with subtle animations
 
 ## Technologies Used
 - Jekyll static site generator
@@ -23,3 +17,6 @@ Visit the live site: [anghelmarian.github.io](https://anghelmarian.github.io)
 - Mobile-responsive layout
 - Dynamic copyright year updates
 - Minimalist color scheme
+
+## Work in progress
+- Adding projects

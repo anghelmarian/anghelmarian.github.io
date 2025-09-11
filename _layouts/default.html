@@ -38,6 +38,15 @@
         {{ content }}
     </main>
     <script>
+        // Update copyright year
+        document.addEventListener('DOMContentLoaded', function() {
+            var footerYear = document.querySelector('.footer p');
+            if (footerYear) {
+                footerYear.innerHTML = footerYear.innerHTML.replace(/\d{4}/, new Date().getFullYear());
+            }
+        });
+        
+        // Particle animation
         document.addEventListener('DOMContentLoaded', function() {
             var canvas = document.getElementById('particles');
             var ctx = canvas.getContext('2d');

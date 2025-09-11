@@ -1,20 +1,230 @@
-<!doctype html>
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="utf-8">
-    <title>Marian Anghel - Software Engineer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Marian Anghel</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
-  </head>
-	<body>
-		<main style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;background:#fff;">
-			<img src="/assets/images/skydiving_jump.JPG" alt="Profile Image" style="width:160px;height:160px;border-radius:50%;margin-top:40px;box-shadow:0 2px 12px #ccc;object-fit:cover;">
-			<h1 style="font-size:2em;font-weight:700;margin:20px 0 10px 0;">Your Name</h1>
-			<div style="font-size:1.1em;color:#555;margin-bottom:18px;">Software Engineer<a href="#" style="color:#0077cc;text-decoration:none;">[Company]</a></div>
-			<nav style="margin-bottom:22px;">
-				<a href="https://www.linkedin.com/in/marian-anghel-46a453281/" style="margin:0 8px;color:#0077cc;text-decoration:none;">LinkedIn</a>
-			</nav>
-			<div style="max-width:500px;margin:0 auto 30px auto;font-size:1em;color:#444;text-align:center;">Short professional description goes here. This is a placeholder for your bio or tagline.</div>
-			<footer style="font-size:0.9em;color:#888;margin-bottom:20px;text-align:center;width:100%;">&copy; 2025 Your Name</footer>
-		</main>
-  </body>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            background: #020c1b; /* Darker blue background */
+        }
+        body {
+            background: transparent;
+            color: #fff; /* Make text white for dark background */
+        }
+        .profile__name, .profile__title, .bio, h2, .project-card h3, .project-card p {
+            color: #fff !important;
+        }
+        .project-card {
+            background: rgba(255, 255, 255, 0.1) !important;
+        }
+        .social-links a {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particles"></canvas>
+    <main class="container">
+        <section class="profile">
+    <img src="/assets/images/profile.jpeg" alt="Marian Anghel" class="profile__image">
+    <h1 class="profile__name">Marian Anghel</h1>
+    <div class="profile__title">Software Engineer</div>
+    
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/marian-anghel-46a453281/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/anghelmarian" target="_blank" rel="noopener">GitHub</a>
+    </div>
+
+    <!-- <div class="bio">
+        Passionate about building scalable solutions and exploring new technologies.
+    </div> -->
+    <div class="quote">
+        "Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away."
+        <span class="quote-author">― Antoine de Saint-Exupéry</span>
+    </div>
+</section>
+
+<!-- <section class="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+        <a href="#" class="project-card">
+            <h3>Project One</h3>
+            <p>Description of your first major project</p>
+        </a>
+        <a href="#" class="project-card">
+            <h3>Project Two</h3>
+            <p>Description of your second project</p>
+        </a>
+        <a href="#" class="project-card">
+            <h3>Project Three</h3>
+            <p>Description of your third project</p>
+        </a>
+    </div>
+</section> -->
+
+<footer class="footer">
+    <p>&copy; 2025 Marian Anghel. All rights reserved.</p>
+</footer>
+
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var canvas = document.getElementById('particles');
+            var ctx = canvas.getContext('2d');
+            var particles = [];
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+            resizeCanvas();
+            window.addEventListener('resize', function() {
+                resizeCanvas();
+                particles = [];
+                createParticles();
+            });
+
+            function Particle() {
+                this.reset = function(initializing) {
+                    // If initializing, spread across whole canvas, otherwise start from left
+                    this.x = initializing ? Math.random() * canvas.width : -10;
+                    this.y = Math.random() * canvas.height;
+                    
+                    // Create depth layers with weighted distribution
+                    var rand = Math.random();
+                    if (rand < 0.75) { // 75% chance for far layer
+                        this.z = Math.random() * 1; // 0-1
+                        this.size = 0.3 + Math.random() * 0.3; // More consistent small size
+                        this.opacity = 0.3 + Math.random() * 0.2; // More visible
+                        this.speedX = 0.1 + (Math.random() * 0.2);
+                    } else if (rand < 0.88) { // 13% chance for middle layer
+                        this.z = 1 + (Math.random() * 0.8); // 1-1.8
+                        this.size = 0.6 + Math.random() * 0.4;
+                        this.opacity = 0.4 + Math.random() * 0.2;
+                        this.speedX = 0.2 + (Math.random() * 0.3);
+                    } else if (rand < 0.97) { // 9% chance for larger particles
+                        this.z = 1.5 + (Math.random() * 0.5); // 1.5-2
+                        this.size = 1.2 + Math.random() * 0.8; // Larger size
+                        this.opacity = 0.3 + Math.random() * 0.3;
+                        this.speedX = 0.25 + (Math.random() * 0.35);
+                    } else { // 3% chance for largest layer
+                        this.z = 1.8 + (Math.random() * 0.2); // 1.8-2
+                        this.size = 1.6 + Math.random() * 1;
+                        this.opacity = 0.4 + Math.random() * 0.3;
+                        this.speedX = 0.3 + (Math.random() * 0.4);
+                    }
+                    
+                    this.speedY = (Math.random() - 0.5) * (0.1 + (this.z * 0.05)); // Vertical movement based on depth
+                };
+
+                this.respawn = function() {
+                    this.reset(false); // false indicates respawn from left
+                };
+
+                this.update = function() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+
+                    if (this.x > canvas.width) {
+                        this.respawn();
+                    }
+
+                    if (this.y < 0) {
+                        this.y = 0;
+                        this.speedY = Math.abs(this.speedY) * 0.5;
+                    } else if (this.y > canvas.height) {
+                        this.y = canvas.height;
+                        this.speedY = -Math.abs(this.speedY) * 0.5;
+                    }
+                };
+
+                this.draw = function() {
+                    var gradient = ctx.createRadialGradient(
+                        this.x, this.y, 0,
+                        this.x, this.y, this.size * 2
+                    );
+                    gradient.addColorStop(0, 'rgba(255, 255, 255, ' + this.opacity + ')');
+                    gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+                    
+                    ctx.fillStyle = gradient;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size * 2, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    ctx.fillStyle = 'rgba(255, 255, 255, ' + (this.opacity * 1.5) + ')';
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                };
+
+                this.reset();
+            }
+
+            function createParticles() {
+                var numberOfParticles = Math.floor((canvas.width * canvas.height) / 4000); // Increased particle density
+                for (var i = 0; i < numberOfParticles; i++) {
+                    var p = new Particle();
+                    p.reset(true); // true indicates initial creation
+                    particles.push(p);
+                }
+            }
+
+            function drawConnections() {
+                for (var i = 0; i < particles.length; i++) {
+                    var connections = 0; // Count connections per particle
+                    for (var j = i + 1; j < particles.length; j++) {
+                        var dx = particles[i].x - particles[j].x;
+                        var dy = particles[i].y - particles[j].y;
+                        var distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        // More connections with closer distance threshold
+                        if (distance < 120 && Math.abs(particles[i].z - particles[j].z) < 1.2) {
+                            var opacity = 0.2 * (1 - distance/120); // Increased base opacity
+                            
+                            ctx.beginPath();
+                            ctx.strokeStyle = 'rgba(255, 255, 255, ' + opacity + ')';
+                            ctx.lineWidth = 0.3; // Thicker lines
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                            
+                            connections++;
+                            if (connections >= 3) break; // Limit connections per particle
+                        }
+                    }
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Update and draw particles
+                for (var i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                }
+                
+                // Draw connections between particles
+                drawConnections();
+                
+                requestAnimationFrame(animate);
+            }
+
+            createParticles();
+            animate();
+        });
+    </script>
+    </script>
+</body>
 </html>

@@ -1,4 +1,6 @@
-# _config.yml
-
-url: 'https://anghelmarian.github.io/' # your main domain
-baseurl: 'anghelmarian.github.io/' #
+# Site settings
+title: Marian Anghel
+description: Personal website and portfolio
+url: "https://anghelmarian.github.io" # your main domain
+baseurl: "" # leave empty for GitHub Pages
+markdown: kramdown

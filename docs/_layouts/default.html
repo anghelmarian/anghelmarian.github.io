@@ -20,7 +20,7 @@
 
         <a href="/" class="btn btn-home"><span class="icon"></span>Home</a>
         <a href="/about.html" class="btn btn-about"><span class="icon"></span>About me</a>
-        <a href="{{ site.github.repository_url }}" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        <a href="{{ site.repository | default: site.github.repository_url }}" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
       </div>
     </header>
 

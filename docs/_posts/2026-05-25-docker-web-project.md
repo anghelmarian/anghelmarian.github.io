@@ -1,6 +1,5 @@
 ---
 layout: post
-author: Marian
 ---
 
 Using 5+ docker containers for encrypting and decrypting with a symmetric AES key a large BMP picture. 
